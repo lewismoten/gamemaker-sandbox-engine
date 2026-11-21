@@ -2,17 +2,19 @@
 
 `@lewismoten/gamemaker-sandbox-engine` runs RSD Game-Maker games from their original DOS files in a browser. It is the same TypeScript engine used by the Game-Maker: Sandbox Edition web player. The package includes its audio worklet and TypeScript declarations; it does not include games or the site's editor and catalog.
 
-Version **3.3.1**. ES modules with TypeScript declarations; no runtime npm dependencies.
+Version **3.3.4**. ES modules with TypeScript declarations; no runtime npm dependencies.
 Playback needs a modern browser with canvas, Web Audio (including AudioWorklet) and keyboard
 events. Node.js **22.12+** is declared for Node consumers and builds.
 
-Install from your configured npm registry:
+## Install
+
+Map the scope to GitHub Packages and sign in with a GitHub username and a classic personal access token with `read:packages` access.
 
 ```sh
+npm config set @lewismoten:registry https://npm.pkg.github.com
+npm login --scope=@lewismoten --registry=https://npm.pkg.github.com --auth-type=legacy
 npm install @lewismoten/gamemaker-sandbox-engine
 ```
-
-If your registry requires authentication or a scope mapping, configure npm using that registry's instructions.
 
 Pass the files from one game's DOS directory to `GameFiles`. Names are case insensitive and use DOS 8.3 names. `GameFiles.mainGame()` finds a `.GAM` file. Keep the original file names and bytes; the game refers to its other files by name.
 
@@ -63,7 +65,7 @@ play.addEventListener('click', async () => {
 
 ## Read a game file in Node.js
 
-The native file codecs also run in Node. This reads a `.GAM` file from the original CD (run it from the repository root) and lists its scene titles:
+The native file codecs also run in Node. This reads a `.GAM` file from the original CD (run it from the directory containing your copy of the CD under `cd/`) and lists its scene titles:
 
 ```ts
 import { readFileSync } from 'node:fs';
@@ -133,15 +135,26 @@ frames, positions, times and keys. `patchTable.ts` keeps the public types, const
 `PATCHES` table and gameplay entry builders; `patchRules.ts` looks entries up and validates
 and reads or writes their values.
 
-## Developing
+## Development and testing
 
-Source is in [web/packages/engine](https://github.com/lewismoten/GameMaker-SandboxEdition/tree/master/web/packages/engine/src).
-In the package folder, run `npm run build`, `npm run verify` or `npm pack`.
-Repository development uses root `npm ci`; root `npm run verify:packages` checks isolated
-builds and packed consumers. Standalone builds use only this package's source and declared
-dependencies. See the [monorepo guide](https://github.com/lewismoten/GameMaker-SandboxEdition/blob/master/docs/monorepo.md)
-and [release guide](https://github.com/lewismoten/GameMaker-SandboxEdition/blob/master/docs/package-releases.md).
+From the engine checkout, run:
 
-The source is MIT licensed. The tarball includes the README, changelog,
-[LICENSE](https://github.com/lewismoten/GameMaker-SandboxEdition/blob/master/web/packages/engine/LICENSE)
-and [NOTICE.md](https://github.com/lewismoten/GameMaker-SandboxEdition/blob/master/web/packages/engine/NOTICE.md).
+```sh
+npm ci
+npm run build
+npm test
+npm run typecheck
+npm run verify
+```
+
+The build writes ES modules and TypeScript declarations to `dist/`. Vitest runs the engine tests in `test/` against `src/`; the fixtures include individual samples from the CD and the BBS gallery. To run a single file, use `npm test -- test/jpeg.test.ts`. Verification installs the packed engine in a temporary consumer and checks its public API and NodeNext declarations.
+
+To try local changes in the GameMaker app, run `npm link` from this checkout after building. From the app’s consuming package directory, run `npm link @lewismoten/gamemaker-sandbox-engine`. Rebuild the engine after editing source when the app uses the compiled exports. Run `npm ci` in the app checkout to restore its locked dependencies.
+
+## Releases
+
+1. Choose a new unpublished version. Run `npm version <version> --no-git-tag-version` to update the manifest and lockfile. Add a dated `## [<version>] - YYYY-MM-DD` section to CHANGELOG.md.
+2. Run the development checks above and review `npm pack --dry-run`. Commit the release changes and merge them into `main`.
+3. On the release commit, run `git tag "v$(node -p "require('./package.json').version")"` and push that tag. The publish workflow repeats CI, publishes to GitHub Packages, and creates a GitHub Release with the changelog section and a CycloneDX SBOM for runtime dependencies.
+
+The package ships under the [MIT license](LICENSE) with [third-party notices](NOTICE.md).
