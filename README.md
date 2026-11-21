@@ -1,3 +1,5 @@
+<p align="center"><img src="https://raw.githubusercontent.com/lewismoten/gamemaker-sandbox-engine/main/.github/social-preview.jpg" alt="Game-Maker Sandbox Engine: original DOS games, browser playback" width="640" height="320"></p>
+
 # Game-Maker: Sandbox Edition browser engine
 
 [![npm](https://img.shields.io/npm/v/@lewismoten/gamemaker-sandbox-engine?label=npm)](https://www.npmjs.com/package/@lewismoten/gamemaker-sandbox-engine) [![GitHub release](https://img.shields.io/github/v/release/lewismoten/gamemaker-sandbox-engine?label=release)](https://github.com/lewismoten/gamemaker-sandbox-engine/releases/latest)
