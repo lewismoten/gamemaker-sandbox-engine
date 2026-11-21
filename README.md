@@ -1,14 +1,18 @@
 # Game-Maker: Sandbox Edition browser engine
 
+[![npm](https://img.shields.io/npm/v/@lewismoten/gamemaker-sandbox-engine?label=npm)](https://www.npmjs.com/package/@lewismoten/gamemaker-sandbox-engine) [![GitHub release](https://img.shields.io/github/v/release/lewismoten/gamemaker-sandbox-engine?label=release)](https://github.com/lewismoten/gamemaker-sandbox-engine/releases/latest)
+
 `@lewismoten/gamemaker-sandbox-engine` runs RSD Game-Maker games from their original DOS files in a browser. It is the same TypeScript engine used by the Game-Maker: Sandbox Edition web player. The package includes its audio worklet and TypeScript declarations; it does not include games or the site's editor and catalog.
 
-Version **3.3.4**. ES modules with TypeScript declarations; no runtime npm dependencies.
+ES modules with TypeScript declarations; no runtime npm dependencies.
 Playback needs a modern browser with canvas, Web Audio (including AudioWorklet) and keyboard
 events. Node.js **22.12+** is declared for Node consumers and builds.
 
 ## Install
 
-Map the scope to GitHub Packages and sign in with a GitHub username and a classic personal access token with `read:packages` access.
+From npmjs (no token needed): `npm install @lewismoten/gamemaker-sandbox-engine`.
+
+From GitHub Packages: map the scope and sign in with a GitHub username and a classic personal access token with `read:packages` access.
 
 ```sh
 npm config set @lewismoten:registry https://npm.pkg.github.com
