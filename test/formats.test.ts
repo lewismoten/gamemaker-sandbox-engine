@@ -2,14 +2,14 @@
 import { describe, expect, it } from 'vitest';
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { parseBlocks, serializeBlocks, BLOCK_COUNTS, BLOCK_SIZE, type BlockKind } from '@lewismoten/gamemaker-sandbox-engine/formats/blocks';
-import { parseCharacter, serializeCharacter } from '@lewismoten/gamemaker-sandbox-engine/formats/character';
-import { parseMonsters, serializeMonsters } from '@lewismoten/gamemaker-sandbox-engine/formats/monster';
-import { parseMap, serializeMap } from '@lewismoten/gamemaker-sandbox-engine/formats/map';
-import { parseSoundSet, serializeSoundSet } from '@lewismoten/gamemaker-sandbox-engine/formats/sound';
-import { parseGame, serializeGame, STARTTYPE, ENDTYPE } from '@lewismoten/gamemaker-sandbox-engine/formats/game';
+import { parseBlocks, serializeBlocks, BLOCK_COUNTS, BLOCK_SIZE, type BlockKind } from '../src/formats/blocks';
+import { parseCharacter, serializeCharacter } from '../src/formats/character';
+import { parseMonsters, serializeMonsters } from '../src/formats/monster';
+import { parseMap, serializeMap } from '../src/formats/map';
+import { parseSoundSet, serializeSoundSet } from '../src/formats/sound';
+import { parseGame, serializeGame, STARTTYPE, ENDTYPE } from '../src/formats/game';
 
-const CD = resolve(__dirname, '../../cd');
+const CD = resolve(__dirname, './fixtures/cd');
 const gameware = join(CD, 'gameware');
 
 // Files on the CD image that were cut off at 16 KiB.

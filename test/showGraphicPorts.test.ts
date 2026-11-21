@@ -1,8 +1,8 @@
 // Fake ports and a one-pixel frame keep scheduler cleanup tests free of real handles and UI.
 import { afterEach, expect, it, vi } from 'vitest';
-import { GameFiles } from '@lewismoten/gamemaker-sandbox-engine/core/gameFiles';
-import type { Machine } from '@lewismoten/gamemaker-sandbox-engine/engine/machine';
-import { playFli } from '@lewismoten/gamemaker-sandbox-engine/engine/showGraphic';
+import { GameFiles } from '../src/core/gameFiles';
+import type { Machine } from '../src/engine/machine';
+import { playFli } from '../src/engine/showGraphic';
 
 afterEach(() => vi.unstubAllGlobals());
 function machine(): Machine {

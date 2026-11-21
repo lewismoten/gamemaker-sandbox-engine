@@ -1,7 +1,7 @@
 // The Starter hero's walk, jump and climb as a character file, for tests (the same frames as
 // games/kit/starter/heroChar.ts). No DOM.
-import { CHARBL } from '@lewismoten/gamemaker-sandbox-engine/formats/blocks';
-import { emptyFrame, newCharacter, type Character, type Frame } from '@lewismoten/gamemaker-sandbox-engine/formats/character';
+import { CHARBL } from '../src/formats/blocks';
+import { emptyFrame, newCharacter, type Character, type Frame } from '../src/formats/character';
 
 const f = (x: number, y: number, pause = 1): Frame => ({ ...emptyFrame(), x, y, pic1: CHARBL, pic2: 1, pause });
 

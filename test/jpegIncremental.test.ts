@@ -1,7 +1,7 @@
 // 32x16 test artwork: R=30+6*x, G=20+10*y, B=60*floor(x/8), encoded locally
 // with libjpeg-turbo 3.2.0 cjpeg (quality 70, 1x1 sampling). No encoder code is bundled.
 import { describe, expect, it } from 'vitest';
-import { decodePartialJpeg } from '@lewismoten/gamemaker-sandbox-engine/formats/jpeg';
+import { decodePartialJpeg } from '../src/formats/jpeg';
 
 const baseline = Uint8Array.from(
   Buffer.from(

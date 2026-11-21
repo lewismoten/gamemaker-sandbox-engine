@@ -1,7 +1,7 @@
 // gameTitle: the start scene's description holds CP437 byte codes, shown outside DOS as the
 // Unicode a PC drew, without the spaces and frame lines authors put around it.
 import { describe, expect, it } from 'vitest';
-import { gameTitle, newGame, parseGame, serializeGame } from '@lewismoten/gamemaker-sandbox-engine/formats/game';
+import { gameTitle, newGame, parseGame, serializeGame } from '../src/formats/game';
 
 describe('gameTitle', () => {
   it('reads code page 437, not Latin-1, and drops the frame around the name', () => {

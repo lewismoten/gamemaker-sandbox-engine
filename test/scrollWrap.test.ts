@@ -1,6 +1,6 @@
 // Tests: ChangeScroll's 16-bit int overflow (engine/scroll.ts dosSpeed), as in PLAYGAME.C.
 import { describe, expect, it } from 'vitest';
-import { dosSpeed } from '@lewismoten/gamemaker-sandbox-engine/engine/scroll';
+import { dosSpeed } from '../src/engine/scroll';
 
 describe('scroll speed 16-bit wrap', () => {
   it('is the plain linear speed while the product fits an int', () => {

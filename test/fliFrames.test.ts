@@ -2,10 +2,10 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { decodeFliFrames, encodeFliFrames, fitPicture } from '@lewismoten/gamemaker-sandbox-engine/formats/fliFrames';
-import { parseFli } from '@lewismoten/gamemaker-sandbox-engine/formats/fli';
+import { decodeFliFrames, encodeFliFrames, fitPicture } from '../src/formats/fliFrames';
+import { parseFli } from '../src/formats/fli';
 
-const gameware = resolve(__dirname, '../../cd/gameware');
+const gameware = resolve(__dirname, './fixtures/cd/gameware');
 const flis = existsSync(gameware)
   ? readdirSync(gameware).flatMap((d) =>
       readdirSync(join(gameware, d))

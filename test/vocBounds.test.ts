@@ -1,6 +1,6 @@
 // VOC block-9 format checks decode bytes only; no audio context or playback is created.
 import { expect, it } from 'vitest';
-import { decodeVoc } from '@lewismoten/gamemaker-sandbox-engine/formats/voc';
+import { decodeVoc } from '../src/formats/voc';
 function voc(channels: number, bits = 8, codec = 0, rate = 8000, data = [0, 128, 255, 128]): Uint8Array {
   const bytes = new Uint8Array(26 + 4 + 12 + data.length + 1);
   bytes.set(new TextEncoder().encode('Creative Voice File\x1a'));

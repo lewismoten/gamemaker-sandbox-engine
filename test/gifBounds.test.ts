@@ -1,6 +1,6 @@
 // Reject malformed GIF work requests before dictionary setup or pixel allocation.
 import { expect, it } from 'vitest';
-import { decodeGif, lzwDecode } from '@lewismoten/gamemaker-sandbox-engine/formats/gif';
+import { decodeGif, lzwDecode } from '../src/formats/gif';
 
 it('rejects unsupported minimum code sizes at both GIF and LZW entry points', () => {
   for (const size of [0, 1, 9, 30, 255, NaN, 2.5]) {

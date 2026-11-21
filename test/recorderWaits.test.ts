@@ -3,10 +3,10 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { Recorder } from '@lewismoten/gamemaker-sandbox-engine/engine/recorder';
-import { serializeRecording } from '@lewismoten/gamemaker-sandbox-engine/formats/recording';
+import { Recorder } from '../src/engine/recorder';
+import { serializeRecording } from '../src/formats/recording';
 
-const nebula = new Uint8Array(readFileSync(join(__dirname, '../../cd/gameware/nebula/demo.rec')));
+const nebula = new Uint8Array(readFileSync(join(__dirname, './fixtures/cd/gameware/nebula/demo.rec')));
 
 describe('demo playback across key-reading screens', () => {
   it('treats a DOS recording as counting waits and catches up after a screen', () => {
@@ -53,14 +53,4 @@ describe('demo playback across key-reading screens', () => {
     expect(r.pollOnce()).toEqual([28]);
     expect(r.pollOnce()).toEqual([]);
   });
-
-  it("Linear Volume's own demo plays past its drop screen (it once waited for Enter forever)", async () => {
-    const { loadCdGame, runHeadless } = await import('../../games/kit/cdDemos/headless');
-    let ticks = 0;
-    await runHeadless(loadCdGame('gameware', 'volume'), 'volume.gam', {
-      maxTicks: 160,
-      onTick: () => void ticks++,
-    });
-    expect(ticks).toBeGreaterThanOrEqual(160);
-  }, 60000);
 });

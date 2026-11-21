@@ -4,7 +4,7 @@ import { mkdtempSync, rmSync, utimesSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { libraryFacts } from '../scripts/libraryFacts';
-import { encodeVoc } from '@lewismoten/gamemaker-sandbox-engine/formats/voc';
+import { encodeVoc } from '../src/formats/voc';
 const folders: string[] = [];
 afterEach(() => {
   for (const path of folders.splice(0)) rmSync(path, { recursive: true, force: true });

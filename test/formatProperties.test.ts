@@ -12,9 +12,9 @@ import {
   NOSCENE,
   type Game,
   type Scene,
-} from '@lewismoten/gamemaker-sandbox-engine/formats/game';
-import { parseMap, serializeMap, MLEN, MWID, LASTMM, type GameMap } from '@lewismoten/gamemaker-sandbox-engine/formats/map';
-import { parseBlocks, serializeBlocks, BLOCK_COUNTS, BLOCK_SIZE, type Block, type BlockKind } from '@lewismoten/gamemaker-sandbox-engine/formats/blocks';
+} from '../src/formats/game';
+import { parseMap, serializeMap, MLEN, MWID, LASTMM, type GameMap } from '../src/formats/map';
+import { parseBlocks, serializeBlocks, BLOCK_COUNTS, BLOCK_SIZE, type Block, type BlockKind } from '../src/formats/blocks';
 import {
   parseCharacter,
   serializeCharacter,
@@ -24,18 +24,18 @@ import {
   METERS,
   CHR_RECORD_SIZE,
   type Character,
-} from '@lewismoten/gamemaker-sandbox-engine/formats/character';
-import { parseMonsters, serializeMonsters, LASTMON, LASTSL, MAXMARCH, type Monster, type March } from '@lewismoten/gamemaker-sandbox-engine/formats/monster';
-import { parsePalette, serializePalette, PALETTE_SIZE } from '@lewismoten/gamemaker-sandbox-engine/formats/palette';
-import { parseSoundSet, serializeSoundSet, LASTSND, NUMFREQ, type SoundSet } from '@lewismoten/gamemaker-sandbox-engine/formats/sound';
-import { parseRecording, serializeRecording, RECLEN, type RecordedKey } from '@lewismoten/gamemaker-sandbox-engine/formats/recording';
+} from '../src/formats/character';
+import { parseMonsters, serializeMonsters, LASTMON, LASTSL, MAXMARCH, type Monster, type March } from '../src/formats/monster';
+import { parsePalette, serializePalette, PALETTE_SIZE } from '../src/formats/palette';
+import { parseSoundSet, serializeSoundSet, LASTSND, NUMFREQ, type SoundSet } from '../src/formats/sound';
+import { parseRecording, serializeRecording, RECLEN, type RecordedKey } from '../src/formats/recording';
 import {
   parseSlideList,
   serializeSlideList,
   parseBackdrop,
   serializeBackdrop,
   type SlideEntry,
-} from '@lewismoten/gamemaker-sandbox-engine/formats/graphicScripts';
+} from '../src/formats/graphicScripts';
 
 const CASES = Number(process.env.GM_PROPERTY_CASES) || 200;
 const ONLY = process.env.GM_PROPERTY_SEED ? Number(process.env.GM_PROPERTY_SEED) : undefined;

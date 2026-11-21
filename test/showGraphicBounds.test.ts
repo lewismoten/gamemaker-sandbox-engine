@@ -1,8 +1,8 @@
 // A stub machine keeps slide-list tests bounded, with no screen, input or audio devices.
 import { afterEach, expect, it, vi } from 'vitest';
-import { GameFiles } from '@lewismoten/gamemaker-sandbox-engine/core/gameFiles';
-import type { Machine } from '@lewismoten/gamemaker-sandbox-engine/engine/machine';
-import { showGraphic } from '@lewismoten/gamemaker-sandbox-engine/engine/showGraphic';
+import { GameFiles } from '../src/core/gameFiles';
+import type { Machine } from '../src/engine/machine';
+import { showGraphic } from '../src/engine/showGraphic';
 
 afterEach(() => vi.useRealTimers());
 function machine(entries: [string, string][]) {

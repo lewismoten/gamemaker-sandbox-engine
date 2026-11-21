@@ -1,6 +1,6 @@
 // Header-only inputs must be rejected before coefficient allocation.
 import { expect, it } from 'vitest';
-import { decodePartialJpeg } from '@lewismoten/gamemaker-sandbox-engine/formats/jpeg';
+import { decodePartialJpeg } from '../src/formats/jpeg';
 
 function header(width: number, height: number, sampling = 0x11, components = 1): Uint8Array {
   return new Uint8Array([
